@@ -1,0 +1,10 @@
+version: '3'
+services:
+  myapp:
+    image: python:3.9 
+    container_name: unit-tests-python
+    working_dir: /app
+    volumes:
+      - ./src:/app/src
+      - ./tests:/app/tests
+    command: bash -c "pip install -U pytest && cd tests/ && pytest"
